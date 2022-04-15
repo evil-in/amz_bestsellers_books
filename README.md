@@ -4,7 +4,7 @@
 To scrape details such as book name, price, author, rating, number of reviews and rank. 
 
 ### Dependencies:
-* Google Chrome driver - download from the site according to browser settings. [download here](https://chromedriver.chromium.org/downloads)
+* Google Chrome driver - download from the site according to browser settings. [(download here)](https://chromedriver.chromium.org/downloads)
 
 **The python packages:**
 - bs4 : BeautifulSoup package for converting HTML code into a soup object to gather data. 
