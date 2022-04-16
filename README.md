@@ -2,6 +2,7 @@
 
 ### Objective: 
 To scrape details such as book name, price, author, rating, number of reviews and rank. 
+<p> This gets the top 100 bestsellers books from the main page and the top 100 from each genre page. </p>
 
 ### Dependencies:
 * Google Chrome driver - download from the site according to browser settings. [(download here)](https://chromedriver.chromium.org/downloads)
@@ -13,9 +14,10 @@ To scrape details such as book name, price, author, rating, number of reviews an
 - re : python regex package to check for patterns.
 - selenium - To use chrome driver to make a request to the URL and capture the HTML source code. 
 
-**Install package requirements:**
+**Install package requirements via command line:**
 > pip install -r requirements.txt
 
 
-### Code: [Python web scraper](https://github.com/evil-in/amz_bestsellers_books/blob/main/amz_books_bestseller_scraper.py)
+### Code: 
+[**Python web scraper**](https://github.com/evil-in/amz_bestsellers_books/blob/main/amz_books_bestseller_scraper.py)
 
