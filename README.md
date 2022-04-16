@@ -22,7 +22,7 @@ To scrape details such as book name, price, author, rating, number of reviews an
 - selenium - To use chrome driver to make a request to the URL and capture the HTML source code. 
 
 **Install package requirements via command line:**
-> `pip install -r requirements.txt`
+`pip install -r requirements.txt`
 
 
 ### Code: 

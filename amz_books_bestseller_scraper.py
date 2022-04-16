@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import pandas as pd
+import numpy as np
 import time
 import re
 from selenium import webdriver
@@ -41,14 +42,14 @@ def features(soup, genre):
     rank_list = []
     genre_list = []
     # finding the soup elements using CSS elements
-    for d in soup.findAll("div", attrs = {'id':'gridItemRoot' , 'class': 'a-column a-span12 a-text-center _p13n-zg-list-grid-desktop_style_grid-column__2hIsc'}):
-        name = d.find("div", attrs= {"class":"_p13n-zg-list-grid-desktop_truncationStyles_p13n-sc-css-line-clamp-1__1Fn1y"})
-        author = d.find("div", attrs = {"class": "a-row a-size-small"})
-        link = d.find("a", attrs= {"class":"a-link-normal", "role": "link", "tabindex":"-1"})
-        price = d.find("span", attrs = {"class":"_p13n-zg-list-grid-desktop_price_p13n-sc-price__3mJ9Z"})
-        rating = d.find("span", attrs = {"class": "a-icon-alt"})
-        review = d.find("span", attrs = {"class":"a-size-small"})
-        rank = d.find("span", attrs = {"class": "zg-bdg-text"})
+    for s in soup.findAll("div", attrs = {'id':'gridItemRoot' , 'class': 'a-column a-span12 a-text-center _p13n-zg-list-grid-desktop_style_grid-column__2hIsc'}):
+        name = s.find("div", attrs= {"class":"_p13n-zg-list-grid-desktop_truncationStyles_p13n-sc-css-line-clamp-1__1Fn1y"})
+        author = s.find("div", attrs = {"class": "a-row a-size-small"})
+        link = s.find("a", attrs= {"class":"a-link-normal", "role": "link", "tabindex":"-1"})
+        price = s.find("span", attrs = {"class":"_p13n-zg-list-grid-desktop_price_p13n-sc-price__3mJ9Z"})
+        rating = s.find("span", attrs = {"class": "a-icon-alt"})
+        review = s.find("span", attrs = {"class":"a-size-small"})
+        rank = s.find("span", attrs = {"class": "zg-bdg-text"})
 
         if name is not None:
             name_list.append(name.get_text())
@@ -138,6 +139,7 @@ def main():
     2. Parsing the HTML code to get the data points, using the features(soup_object, genre) function
     3. Getting the genre and the links of the sub-division of bestseller pages, using the genre_features(soup_object) function
     4. Scraping each link for the data, using parser(url) and features(soup_object, genre) """
+
     url1 = 'https://www.amazon.in/gp/bestsellers/books/ref=zg_bs_nav_0'
     url2 = 'https://www.amazon.in/gp/bestsellers/books/ref=zg_bs_pg_2?ie=UTF8&pg=2'
     s1 = parser(url1)
@@ -153,14 +155,14 @@ def main():
 
     # looping through the different genres
     for row in range(0, len(genre)):
-        s1 = parser(links1[i])
-        s2 = parser(links2[i])
-        df1 = features(s1, genre[i])
+        s1 = parser(links1[row])
+        s2 = parser(links2[row])
+        df1 = features(s1, genre[row])
         df_final = df_final.append(df1)
-        df2 = features(s2, genre[i])
+        df2 = features(s2, genre[row])
         df_final = df_final.append(df2)
-        df_final=df_final[df_final.columns[[-1,0,1,2, 3,4,5,6]]]
 
+    df_final = df_final[['Genre','Ranks', 'Product', 'Author', 'Links', 'Price', 'Rating','Reviews']]
     df_final.to_csv('Amazon_Bestseller_books.csv', index = False)
 
 if __name__ == '__main__':
