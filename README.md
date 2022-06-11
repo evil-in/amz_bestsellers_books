@@ -27,6 +27,6 @@ To scrape details such as book name, price, author, rating, number of reviews an
 [**Python web scraper**](https://github.com/evil-in/amz_bestsellers_books/blob/main/amz_books_bestseller_scraper.py)
 
 ### Kaggle Dataset:
-[Link to dataset published on kaggle](https://www.kaggle.com/datasets/preethievelyn/amazon-top-100-bestsellers-in-books)
-[Link to EDA of the dataset published on Kaggle](https://www.kaggle.com/code/preethievelyn/eda-amazon-top-100-bestseller-books)
+* [Link to dataset published on kaggle](https://www.kaggle.com/datasets/preethievelyn/amazon-top-100-bestsellers-in-books)
+* [Link to EDA of the dataset published on Kaggle](https://www.kaggle.com/code/preethievelyn/eda-amazon-top-100-bestseller-books)
 
