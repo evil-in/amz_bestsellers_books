@@ -28,4 +28,5 @@ To scrape details such as book name, price, author, rating, number of reviews an
 
 ### Kaggle Dataset:
 [Link to dataset published on kaggle](https://www.kaggle.com/datasets/preethievelyn/amazon-top-100-bestsellers-in-books)
+[Link to EDA of the dataset published on Kaggle](https://www.kaggle.com/code/preethievelyn/eda-amazon-top-100-bestseller-books)
 
